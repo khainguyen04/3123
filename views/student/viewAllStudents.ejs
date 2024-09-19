@@ -1,0 +1,12 @@
+<%- include('partials/header', { title: 'Add Student' }) %>
+
+<body>
+    <h1>All Students</h1>
+    <ul>
+        <% students.forEach(student => { %>
+            <li><a href="/students/<%= student.studentID %>"><%= student.studentID %></a></li>
+        <% }) %>
+    </ul>
+</body>
+
+<%- include('partials/footer') %>

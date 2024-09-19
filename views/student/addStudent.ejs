@@ -1,0 +1,24 @@
+<%- include('../partials/header') %>
+
+<h1>Add Student</h1>
+<form action="/addstudent" method="POST">
+    <label for="studentID">Student ID (starts with 'S' followed by 4 digits):</label>
+    <input type="text" name="studentID" required><br>
+
+    <label for="major">Major:</label>
+    <select name="major" required>
+        <option value="IT">IT</option>
+        <option value="Business">Business</option>
+        <option value="Art">Art</option>
+    </select><br>
+
+    <label for="phone">Phone (9-10 digits):</label>
+    <input type="text" name="phone" required><br>
+
+    <label for="fullName">Full Name (5-50 characters):</label>
+    <input type="text" name="fullName" required><br>
+
+    <button type="submit">Add Student</button>
+</form>
+
+<%- include('../partials/footer') %>
