@@ -1,0 +1,28 @@
+<%- include('../partial/header', { title: 'Add Movie' }) %> <!-- Include the header -->
+
+<div class="container mt-4">
+  <h2 class="text-center">Add Your Favorite Movie</h2>
+  <form action="/addmovie" method="POST">
+    <div class="mb-3">
+      <label for="title" class="form-label">Title</label>
+      <input type="text" class="form-control" id="title" name="title" required minlength="3" maxlength="50">
+    </div>
+    <div class="mb-3">
+      <label for="releaseYear" class="form-label">Year of Release</label>
+      <input type="number" class="form-control" id="releaseYear" name="releaseYear" required min="1900" max="<%= new Date().getFullYear() %>">
+    </div>
+    <div class="mb-3">
+      <label for="genre" class="form-label">Genre</label>
+      <select class="form-select" id="genre" name="genre" required>
+        <option value="">Select a Genre</option>
+        <option value="Action">Action</option>
+        <option value="Drama">Drama</option>
+        <option value="Sci-Fi">Sci-Fi</option>
+        <!-- Add more genre options as needed -->
+      </select>
+    </div>
+    <button type="submit" class="btn btn-success w-100">Add</button>
+  </form>
+</div>
+
+<%- include('../partial/footer') %> <!-- Include the footer -->

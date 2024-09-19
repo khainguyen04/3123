@@ -1,0 +1,40 @@
+<%- include('../partial/header', { title: 'All Movies' }) %> <!-- Include the header -->
+
+<div class="container mt-4">
+  <h2 class="text-center">Movies</h2>
+
+  <!-- Genre Filter Dropdown -->
+  <form method="GET" action="/movies" class="mb-4">
+    <div class="row">
+      <div class="col-md-4">
+        <select name="genre" class="form-select" onchange="this.form.submit()">
+          <option value="">All Genres</option>
+          <option value="Action" <%= selectedGenre === 'Action' ? 'selected' : '' %>>Action</option>
+          <option value="Drama" <%= selectedGenre === 'Drama' ? 'selected' : '' %>>Drama</option>
+          <option value="Sci-Fi" <%= selectedGenre === 'Sci-Fi' ? 'selected' : '' %>>Sci-Fi</option>
+          <!-- Add more genres as needed -->
+        </select>
+      </div>
+    </div>
+  </form>
+
+  <div class="row">
+    <% if (movies.length > 0) { %>
+      <% movies.forEach(movie => { %>
+        <div class="col-md-4">
+          <div class="card mb-4">
+            <div class="card-body">
+              <h5 class="card-title"><%= movie.title %></h5>
+              <p class="card-text">Release Year: <%= movie.releaseYear %></p>
+              <p class="card-text">Genre: <%= movie.genre %></p>
+            </div>
+          </div>
+        </div>
+      <% }) %>
+    <% } else { %>
+      <p class="text-center">No movies available</p>
+    <% } %>
+  </div>
+</div>
+
+<%- include('../partial/footer') %> <!-- Include the footer -->
